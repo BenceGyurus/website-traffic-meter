@@ -8,7 +8,7 @@ const Traffic = require("../Schemas/Traffic.schema")
 @description This function is used to get the traffic
 */
 const getTraffic = async (req,res,next)=>{
-    return res.send(await Traffic.aggregate([
+    return res.send((await Traffic.aggregate([
         {
           $group: {
             _id: "$sessionId",
@@ -17,7 +17,7 @@ const getTraffic = async (req,res,next)=>{
         {
           $count: "traffic",
         },
-      ]));  
+      ]))[0]);  
 }
 
 module.exports = getTraffic;
