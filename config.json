@@ -1,5 +1,6 @@
 {
     "port" : 3000,
     "mongodb" : "mongodb://192.168.1.70:27017/",
-    "jwt_secret_key" : ""
+    "cookies-accept" : "cookiesAccepted",
+    "authUrl" : "https://api.irodalomerettsegi.hu/api/v1/auth/get"
 }

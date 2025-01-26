@@ -5,8 +5,7 @@ const mongoose = require('mongoose');
 const CookieMiddleware = require('./cookie');
 const cookieParser = require('cookie-parser');
 const getTraffic = require('./statistics/getTraffic');
-const registration = require('./auth/registration');
-const login = require('./auth/login');
+const getTrafficChart = require('./statistics/getTrafficChart');
 const bodyParser = require('body-parser');
 const verifyToken = require('./auth/verifyTokenMiddleware');
 
@@ -35,9 +34,7 @@ app.put('/traffic', async (req,res,next)=>await CookieMiddleware(req,res,next), 
 
 app.get('/traffic', verifyToken , getTraffic);
 
-app.post("/auth/register", registration);
-
-app.post("/auth/login", login);
+app.get('/traffic-chart', verifyToken , getTrafficChart);
 
 app.listen(port, () => {
   logger(`the server is listening at http://localhost:${port}`, "info");

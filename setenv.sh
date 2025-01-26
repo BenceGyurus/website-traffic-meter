@@ -1,1 +1,1 @@
-export JWT_SECRET=
+export JWT_SECRET="98c8a174-90df-453a-88c7-9ff409d25905"
